@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "my_RJ")(type "KiCad")(uri "/home/hazen/work/ninjanirs-imu/KiCAD/imu-board/my_RJ.pretty")(options "")(descr ""))
+)

@@ -1,0 +1,6 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "models")(type "KiCad")(uri "${KIPRJMOD}/models")(options "")(descr ""))
+  (lib (name "my_samtec_swap")(type "KiCad")(uri "${KIPRJMOD}/my_samtec_swap.pretty")(options "")(descr ""))
+  (lib (name "AA_Hammond")(type "KiCad")(uri "${KIPRJMOD}/AA_Hammond.pretty")(options "")(descr ""))
+)
