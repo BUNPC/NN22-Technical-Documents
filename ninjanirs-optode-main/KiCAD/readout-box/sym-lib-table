@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "my_regulator")(type "KiCad")(uri "${KIPRJMOD}/my_regulator.kicad_sym")(options "")(descr ""))
+  (lib (name "my_opamp")(type "KiCad")(uri "${KIPRJMOD}/my_opamp.kicad_sym")(options "")(descr ""))
+)

@@ -1,0 +1,5 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "my_header")(type "KiCad")(uri "${KIPRJMOD}/my_header.pretty")(options "")(descr ""))
+  (lib (name "my_IQ80")(type "KiCad")(uri "${KIPRJMOD}/my_IQ80.pretty")(options "")(descr ""))
+)

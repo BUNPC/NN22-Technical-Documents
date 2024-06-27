@@ -1,0 +1,7 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "samtec")(type "KiCad")(uri "${KIPRJMOD}/samtec.pretty")(options "")(descr ""))
+  (lib (name "AA_Hammond")(type "KiCad")(uri "${KIPRJMOD}/AA_Hammond.pretty")(options "")(descr ""))
+  (lib (name "my_ti_vssop")(type "KiCad")(uri "${KIPRJMOD}/my_ti_vssop.pretty")(options "")(descr ""))
+  (lib (name "my_big_SMT_cap")(type "KiCad")(uri "${KIPRJMOD}/my_big_SMT_cap.pretty")(options "")(descr ""))
+)
