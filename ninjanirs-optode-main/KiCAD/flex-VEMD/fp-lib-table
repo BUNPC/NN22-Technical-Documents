@@ -1,6 +1,0 @@
-(fp_lib_table
-  (version 7)
-  (lib (name "my_lfcsp")(type "KiCad")(uri "${KIPRJMOD}/my_lfcsp.pretty")(options "")(descr ""))
-  (lib (name "my_photodiode")(type "KiCad")(uri "${KIPRJMOD}/my_photodiode.pretty")(options "")(descr ""))
-  (lib (name "my_header")(type "KiCad")(uri "${KIPRJMOD}/my_header.pretty")(options "")(descr ""))
-)
