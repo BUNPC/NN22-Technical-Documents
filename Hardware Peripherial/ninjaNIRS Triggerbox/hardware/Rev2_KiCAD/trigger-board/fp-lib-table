@@ -1,0 +1,8 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "BNC")(type "KiCad")(uri "${KIPRJMOD}/BNC.pretty")(options "")(descr ""))
+  (lib (name "E-Switch-800")(type "KiCad")(uri "${KIPRJMOD}/E-Switch-800.pretty")(options "")(descr ""))
+  (lib (name "Hammond_Box")(type "KiCad")(uri "${KIPRJMOD}/Hammond_Box.pretty")(options "")(descr ""))
+  (lib (name "Molex-USB")(type "KiCad")(uri "${KIPRJMOD}/Molex-USB.pretty")(options "")(descr ""))
+  (lib (name "my_LED")(type "KiCad")(uri "${KIPRJMOD}/my_LED.pretty")(options "")(descr ""))
+)

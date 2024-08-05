@@ -1,0 +1,8 @@
+#XYRS data for D:/Dropbox/Eagle/Projects/U01/NN2022/Backplane/SourceBackplane/SrcBackplaneSingleLayer00_01.brd.
+#Board Size is 960.000000 x 1300.000000.
+#
+#Placement Data:
+#Designator	X-Loc	Y-Loc	Rotation	Side	Type	X-Size	Y-Size	Value	Footprint	Populate	MPN
+J1	186.14	650.00	270	1	1	1194.88	299.21	M20X2_HARFLEX_M	M20X2_HARFLEX_M	1	
+J2	773.86	650.00	90	1	1	1194.88	299.21	M20X2_HARFLEX_M	M20X2_HARFLEX_M	1	
+TP1	415.00	100.00	0	1	1	40.00	40.00	TESTPOINT_ROUND	TESTPAD_ROUND	1	
