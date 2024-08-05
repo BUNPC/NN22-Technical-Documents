@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "my_current_amp")(type "KiCad")(uri "${KIPRJMOD}/my_current_amp.kicad_sym")(options "")(descr ""))
+  (lib (name "my_photodiode")(type "KiCad")(uri "${KIPRJMOD}/my_photodiode.kicad_sym")(options "")(descr ""))
+)
