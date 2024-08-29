@@ -1,6 +1,0 @@
-(fp_lib_table
-  (version 7)
-  (lib (name "BNC")(type "KiCad")(uri "/home/hazen/work/ninjaNIRS-triggerbox/hardware/Rev2_KiCAD/trigger-board/BNC.pretty")(options "")(descr ""))
-  (lib (name "samtec")(type "KiCad")(uri "/home/hazen/work/ninjanirs-optode/KiCAD/readout-box/samtec.pretty")(options "")(descr ""))
-  (lib (name "readout-bd")(type "KiCad")(uri "${KIPRJMOD}/readout-bd.pretty")(options "")(descr ""))
-)
