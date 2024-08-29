@@ -1,1 +1,0 @@
-PCB thickness: 0.8mm
