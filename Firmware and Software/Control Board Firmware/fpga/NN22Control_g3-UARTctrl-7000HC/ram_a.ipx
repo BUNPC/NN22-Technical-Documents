@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiamondModule name="ram_a" module="ram_a" VendorName="Lattice Semiconductor Corporation" generator="IPexpress" date="2022 12 30 20:35:03.558" version="7.5" type="Module" synthesis="synplify" source_format="VHDL">
+  <Package>
+		<File name="" type="" modified="2022 12 30 20:35:03.451"/>
+		<File name="ram_a.lpc" type="lpc" modified="2022 12 30 20:35:01.525"/>
+		<File name="ram_a.vhd" type="top_level_vhdl" modified="2022 12 30 20:35:01.571"/>
+		<File name="ram_a_tmpl.vhd" type="template_vhdl" modified="2022 12 30 20:35:01.572"/>
+		<File name="tb_ram_a_tmpl.vhd" type="testbench_vhdl" modified="2022 12 30 20:35:01.579"/>
+  </Package>
+</DiamondModule>

@@ -1,0 +1,57 @@
+[Device]
+Family=machxo2
+PartType=LCMXO2-1200UHC
+PartName=LCMXO2-1200UHC-5FTG256C
+SpeedGrade=5
+Package=FTBGA256
+OperatingCondition=COM
+Status=S
+
+[IP]
+VendorName=Lattice Semiconductor Corporation
+CoreType=LPM
+CoreStatus=Demo
+CoreName=RAM_DP_TRUE
+CoreRevision=7.5
+ModuleName=spi_txrx_ram
+SourceFormat=VHDL
+ParameterFileVersion=1.0
+Date=03/13/2023
+Time=16:15:42
+
+[Parameters]
+Verilog=0
+VHDL=1
+EDIF=1
+Destination=Synplicity
+Expression=BusA(0 to 7)
+Order=Big Endian [MSB:LSB]
+IO=0
+RAddress=1024
+RData=8
+WAddress=1024
+WData=8
+ROutputEn=0
+RClockEn=0
+WOutputEn=0
+WClockEn=0
+enByte=0
+ByteSize=9
+Optimization=Speed
+Reset=Sync
+Reset1=Sync
+Init=0
+MemFile=
+MemFormat=bin
+EnECC=0
+Pipeline=0
+WriteA=Normal
+WriteB=Normal
+init_data=0
+no_init=0
+
+[FilesGenerated]
+=mem
+
+[Command]
+cmd_line= -w -n spi_txrx_ram -lang vhdl -synth synplify -bus_exp 7 -bb -arch xo2c00 -type ramdp -device LCMXO2-1200UHC -aaddr_width 10 -widtha 8 -baddr_width 10 -widthb 8 -anum_words 1024 -bnum_words 1024 -cascade -1 -mem_init0 -writemodeA NORMAL -writemodeB NORMAL

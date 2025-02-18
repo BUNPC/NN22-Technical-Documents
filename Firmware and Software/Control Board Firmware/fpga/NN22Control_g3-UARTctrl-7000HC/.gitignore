@@ -1,0 +1,24 @@
+# --- .gitignore for NinjaNIRS 2022 Lattice Diamond projects ---
+#
+# Adapted from:
+# https://electronics.stackexchange.com/questions/170563/lattice-diamond-gitignore
+#
+# Bernhard Zimmermann - bzim@bu.edu
+# Boston University Neurophotonics Center
+
+*.html
+impl1/*
+!impl1/*.jed
+*.xml
+.build_status
+.run_manager.ini
+.recovery
+.spread_sheet.ini
+.spreadsheet_view.ini
+*.dir/
+*.log
+*.tcl
+*.ccl
+*.srp
+*.dmp
+._Real_._Math_.vhd

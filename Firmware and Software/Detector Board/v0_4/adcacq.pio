@@ -1,0 +1,84 @@
+// ---  NinjaNIRS 2022  ---
+// ADC aquisition PIO program for NN22_RPi_DetAdapter00_s02_R66R67 board
+// using 4x AD7380 in 1 wire SPI mode
+
+// Initial version: 2022-12-13
+// Bernhard Zimmermann - bzim@bu.edu
+// Boston University Neurophotonics Center
+
+// CSn uses the set pin
+// SCLK uses the side set pin
+// MISO uses the input pin
+// MOSI uses the output pin
+
+// MISO changes on rising SCLK
+// MOSI is sampled by ADC on falling SCLK
+
+.define TRG_PIN 3 
+
+.program adcacq
+.side_set 1
+.wrap_target
+    set PINS, 1         side 1 // set CS high
+    wait 0 GPIO TRG_PIN side 1 
+    wait 1 GPIO TRG_PIN side 1 // wait for acq trigger
+PUBLIC acq_start:
+    set PINS, 0         side 1 // set CS low
+    set y, 30           side 0 // init loop counter
+loop1:
+    in PINS, 1          side 1 // shift in from MISO
+    jmp y-- loop1       side 0 
+
+    in PINS, 1          side 1
+    push noblock        side 1 // write to rx FIFO
+.wrap
+
+PUBLIC reg_rw:                 // sub-program to read and write ADC registers
+    set PINS, 1         side 1 // set CS high
+    pull block          side 1 // load value to be transmitted
+    set PINS, 0         side 1 // set CS low
+    set y, 15           side 1 // init loop counter
+loop2:
+    out PINS, 1         side 1 [1] // shift out to MOSI
+    in PINS, 1          side 1 // shift in from MISO
+    jmp y-- loop2       side 0 [2]
+
+    push block          side 1 // write to rx FIFO
+    jmp reg_rw          side 1
+
+    
+% c-sdk {
+
+void adcacq_program_init(PIO pio, uint sm, uint offset, uint csn_pin, uint sclk_pin, uint miso_pin, uint mosi_pin) {
+    pio_sm_config c = adcacq_program_get_default_config(offset);
+    sm_config_set_set_pins(&c, csn_pin, 1);
+    sm_config_set_sideset_pins(&c, sclk_pin);
+    sm_config_set_in_pins(&c, miso_pin);
+    sm_config_set_out_pins(&c, mosi_pin, 1);
+
+    sm_config_set_in_shift(&c, false, false, 32); // shift left, autopush off
+    sm_config_set_out_shift(&c, false, false, 32);
+
+    sm_config_set_clkdiv_int_frac(&c, 2, 0);
+
+    pio_gpio_init(pio, csn_pin);
+    pio_gpio_init(pio, sclk_pin);
+    pio_gpio_init(pio, miso_pin); // probably not strictly necessary
+    pio_gpio_init(pio, mosi_pin); 
+    //pio_gpio_init(pio, TRIG_PIN); // probably not strictly necessary
+
+    pio_sm_set_consecutive_pindirs(pio, sm, csn_pin, 1, true);
+    pio_sm_set_consecutive_pindirs(pio, sm, sclk_pin, 1, true);
+    pio_sm_set_consecutive_pindirs(pio, sm, mosi_pin, 1, true);
+
+    hw_set_bits(&pio->input_sync_bypass, 1u << miso_pin);
+
+    pio_sm_clear_fifos(pio, sm);
+
+    pio_sm_init(pio, sm, offset, &c); // load config into sm
+
+}
+
+%}
+
+

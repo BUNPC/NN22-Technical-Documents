@@ -1,0 +1,50 @@
+// ---  NinjaNIRS 2022  ---
+// ADC aquisition PIO program for NN22_RPi_DetAdapter02_s00 board
+// using 4x AD7380 in 2 wire SPI mode
+// This program captures the output of the 2nd ADC channel on pin SDOB.
+// Syncing to main program via interrupt. The main program has to run on the previous
+// state machine. E.g. if this is on sm1, the main program has to be on sm0.
+
+// Initial version: 2022-12-13
+// Major revision: 2024-04-14 (2 wire read & resolution boost to 18 bits)
+// Bernhard Zimmermann - bzim@bu.edu
+// Boston University Neurophotonics Center
+
+// MISO_B uses the sm input pin. (alt name SDOB)
+
+.program adcacq_miso_b
+.wrap_target 
+    wait 1 irq 4 rel    // wait for acq trigger
+acq_start:
+    set y, 16   [1]     // init loop counter
+loop1:
+    in pins, 1          // shift in from MISO_b
+    jmp y-- loop1
+
+    in pins, 1
+    push noblock        // write to rx FIFO
+.wrap
+
+    
+% c-sdk {
+
+void adcacq_miso_b_program_init(PIO pio, uint sm, uint offset, uint miso_pin) {
+    pio_sm_config c = adcacq_miso_b_program_get_default_config(offset);
+    sm_config_set_in_pins(&c, miso_pin);
+
+    sm_config_set_in_shift(&c, false, false, 32); // shift left, autopush off
+    
+    sm_config_set_clkdiv_int_frac(&c, 2, 0);
+
+    pio_gpio_init(pio, miso_pin); // probably not strictly necessary
+
+    hw_set_bits(&pio->input_sync_bypass, 1u << miso_pin);
+
+    pio_sm_clear_fifos(pio, sm);
+
+    pio_sm_init(pio, sm, offset, &c); // load config into sm
+}
+
+%}
+
+

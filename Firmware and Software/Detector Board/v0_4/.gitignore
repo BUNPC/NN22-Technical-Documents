@@ -1,0 +1,8 @@
+# --- .gitignore for NinjaNIRS 2022 RP2040 projects ---
+#
+# Bernhard Zimmermann - bzim@bu.edu
+# Boston University Neurophotonics Center
+
+build/*
+!build/*.uf2
+!build/*.elf
